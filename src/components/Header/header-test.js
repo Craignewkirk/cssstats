@@ -1,5 +1,4 @@
 import test from 'ava'
-import sinon from 'sinon'
 
 import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
