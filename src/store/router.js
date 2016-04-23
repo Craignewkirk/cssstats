@@ -1,11 +1,11 @@
 import React from 'react'
 import { Route } from 'react-router'
 import App from '../containers/App'
-import About from '../containers/About'
+import Urls from '../containers/Urls'
 
 const routes = (
   <Route path='/' component={App}>
-    <Route path='/about' component={About} />
+    <Route path='/about' component={Urls} />
   </Route>
 )
 

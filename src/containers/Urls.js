@@ -8,14 +8,14 @@ function mapDispatchToProps (dispatch) {
   }
 }
 
-class About extends Component {
+class Urls extends Component {
   render () {
     return (
       <div>
-        <h1>About <code>rj</code></h1>
+        <h1>Urls <code>rj</code></h1>
       </div>
     )
   }
 }
 
-export default connect(mapDispatchToProps)(About)
+export default connect(mapDispatchToProps)(Urls)

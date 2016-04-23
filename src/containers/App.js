@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { routeActions } from 'react-router-redux'
 
+import Header from '../components/Header'
+
 function mapDispatchToProps (dispatch) {
   return {
     navigate: (route) => dispatch(routeActions.push(route))
@@ -13,6 +15,7 @@ class App extends Component {
     const { props } = this
     return (
       <div>
+        <Header />
         <div>
           <h1>Hello, meet <code>rj</code></h1>
           {props.children}

@@ -37,7 +37,7 @@ module.exports = {
       exclude: /node_modules/
     }, {
       test: /\.css$/,
-      loader: 'style-loader!css-loader!sass-loader'
+      loader: 'style-loader!css-loader'
     }, {
       test: /\.(png|jpg|jpeg|gif|svg)$/,
       loader: 'url-loader?prefix=img/&limit=53248'
