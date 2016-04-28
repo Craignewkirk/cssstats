@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { routeActions } from 'react-router-redux'
 
 import Header from '../components/Header'
+import FontColorBlock from '../components/FontColorBlock'
 
 function mapDispatchToProps (dispatch) {
   return {
@@ -16,6 +17,10 @@ class App extends Component {
     return (
       <div>
         <Header />
+        <div className='cf'>
+          <FontColorBlock color='#fafafa' />
+          <FontColorBlock color='rebeccapurple' />
+        </div>
         <div>
           <h1>Hello, meet <code>rj</code></h1>
           {props.children}
