@@ -1,13 +1,16 @@
 import React, { PropTypes } from 'react'
 import { isAccessible } from 'get-contrast'
-import classNames from 'classnames'
 
 const FontColorBlock = ({ color, className }) => {
-  const bgColorClass = isAccessible(color, 'white') ? 'bg-white' : 'bg-dark-gray'
+  const style = { color }
+
+  if (!isAccessible(color, 'white')) {
+    style.textShadow = '1px 1px black' // TODO: A real outline would be nice.
+  }
 
   return (
-    <div className={classNames(className, bgColorClass)}>
-      <p className='f1 ma0' style={{ color }}>
+    <div className={className}>
+      <p className='f1 ma0' style={style}>
         Aa
       </p>
       <p className='ma0'>{color}</p>
