@@ -5,15 +5,15 @@ const FontColorBlock = ({ color, className }) => {
   const style = { color }
 
   if (!isAccessible(color, 'white')) {
-    style.textShadow = '1px 1px black' // TODO: A real outline would be nice.
+    style.textShadow = '0 0 transparent' // TODO: A real outline would be nice.
   }
 
   return (
     <div className={className}>
-      <p className='f1 ma0' style={style}>
+      <p className='f1 b ma0' style={style}>
         Aa
       </p>
-      <p className='ma0'>{color}</p>
+      <p className='ma0 f6 gray'>{color}</p>
     </div>
   )
 }

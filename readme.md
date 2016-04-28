@@ -1,10 +1,13 @@
-# rj-new
+# cssstats
 
-The initial scaffold for rj.
+React app for the CSS Stats client.
 
-##### TODO
+## Installation
 
-- [x] Sass compilation and hotloading
-- [ ] A navigation element, ensure redux history is being tracked correctly
-- [x] An about container
-- [ ] Test the things with ava
+```sh
+$ npm i && npm start
+```
+
+- <http://jxnblk.com/rebass/>
+- <http://api.cssstats.com/stats?url=johnotander.com>
+- <https://github.com/sindresorhus/ava/blob/master/docs/recipes/react.md>

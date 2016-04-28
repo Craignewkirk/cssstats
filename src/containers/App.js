@@ -17,10 +17,6 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <div className='cf'>
-          <FontColorBlock color='#fafafa' />
-          <FontColorBlock color='rebeccapurple' />
-        </div>
         <div>
           {props.children}
         </div>
