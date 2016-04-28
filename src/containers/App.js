@@ -22,7 +22,6 @@ class App extends Component {
           <FontColorBlock color='rebeccapurple' />
         </div>
         <div>
-          <h1>Hello, meet <code>rj</code></h1>
           {props.children}
         </div>
       </div>
