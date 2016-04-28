@@ -9,9 +9,9 @@ const Header = ({ isAuthed }) => {
       <Box col={6}>
         <h3>CSS Stats</h3>
       </Box>
-      <Box col={6} className="tr">
+      <Box col={6} className='tr'>
         {nav}
-        <a href="https://github.com/cssstats/cssstats">
+        <a href='https://github.com/cssstats/cssstats'>
           GitHub
         </a>
       </Box>
