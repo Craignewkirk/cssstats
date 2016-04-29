@@ -26,14 +26,14 @@ class App extends Component {
         <Footer>
           <Flex align='center' className='w-100 ph3'>
             <Box col={6}>
-              Made by Mrmrs, Jxnblk & 4lpine
+              Made by <a className='link gray b' href='http://mrmrs.cc'>Mrmrs</a>, <a className='link gray b' href='http://jxnblk.com'>Jxnblk</a> & <a className='link gray b' href='http://johnotander.com'>4lpine</a>
             </Box>
             <Box col={6} className='tr'>
-              <Link to='design-system' className='link gray mr3'>Design System</Link>
-              <a className='link gray mr3' href='https://github.com/cssstats/cssstats'>
+              <Link to='design-system' className='link gray b mr3'>Design System</Link>
+              <a className='link gray b mr3' href='https://github.com/cssstats/cssstats'>
                 GitHub
               </a>
-              <a className='link gray' href='https://github.com/cssstats/cssstats/issues'>
+              <a className='link gray b' href='https://github.com/cssstats/cssstats/issues'>
                 Issues
               </a>
             </Box>
