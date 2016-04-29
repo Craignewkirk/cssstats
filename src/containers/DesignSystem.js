@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Flex, Box } from 'reflexbox'
 
+import FontSizeBlock from '../components/FontSizeBlock'
 import FontColorBlock from '../components/FontColorBlock'
 import BgColorBlock from '../components/BgColorBlock'
 
@@ -28,6 +29,9 @@ class DesignSystem extends Component {
       )
     })
 
+    const fontSizes = ['8px', '10px', '1rem', '150%', '1.75em', '2rem', '4rem', '8em']
+    const fontSizeBlocks = fontSizes.map(size => <FontSizeBlock fontSize={size} />)
+
     return (
       <div>
        <div className='pv5 pv6-ns ph2 ph4-ns bg-near-white'>
@@ -43,6 +47,10 @@ class DesignSystem extends Component {
         <div className='pa3'>
           <h3 className='code'>&lt;BgColorBlock color='tomato' /&gt;</h3>
           <Flex wrap={true}>{bgColorBlocks}</Flex>
+        </div>
+        <div className='pa3'>
+          <h3 className='code'>&lt;FontSizeBlock fontSize='1rem' /&gt;</h3>
+          {fontSizeBlocks}
         </div>
       </div>
     )
