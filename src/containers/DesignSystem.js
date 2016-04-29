@@ -44,7 +44,7 @@ class DesignSystem extends Component {
       'flower-icons',
       '"Helvetica Neue", "helvetica", "arial", "san-serif"'
     ]
-    const fontFamilyBlocks = fontFamilies.map(fam => <FontFamilyBlock fontFamily={fam} className='f1' />)
+    const fontFamilyBlocks = fontFamilies.map(fam => <FontFamilyBlock fontFamily={fam} className='f3' />)
 
     return (
       <div>
@@ -54,19 +54,19 @@ class DesignSystem extends Component {
             <h2 className='f2 f1-ns i system-serif mid-gray'>The building blocks that make up CSS Stats</h2>
           </div>
         </div>
-        <div className='pa3'>
+        <div className='ph3 pv5'>
           <h3 className='code'>&lt;FontColorBlock color='tomato' /&gt;</h3>
           <Flex wrap={true}>{fontColorBlocks}</Flex>
         </div>
-        <div className='pa3'>
+        <div className='ph3 pv5 bg-near-white'>
           <h3 className='code'>&lt;BgColorBlock color='tomato' /&gt;</h3>
           <Flex wrap={true}>{bgColorBlocks}</Flex>
         </div>
-        <div className='pa3'>
+        <div className='ph3 pv5'>
           <h3 className='code'>&lt;FontSizeBlock fontSize='1rem' /&gt;</h3>
           {fontSizeBlocks}
         </div>
-        <div className='pa3'>
+        <div className='ph3 pv5 bg-near-white'>
           <h3 className='code'>&lt;FontFamilyBlock fontFamily='Helvetica,sans-serif' /&gt;</h3>
           {fontFamilyBlocks}
         </div>
