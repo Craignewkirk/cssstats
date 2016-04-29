@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { Flex, Box } from 'reflexbox'
 
-import FontSizeBlock from '../components/FontSizeBlock'
-import FontColorBlock from '../components/FontColorBlock'
 import BgColorBlock from '../components/BgColorBlock'
+import FontColorBlock from '../components/FontColorBlock'
+import FontFamilyBlock from '../components/FontFamilyBlock'
+import FontSizeBlock from '../components/FontSizeBlock'
 
 class DesignSystem extends Component {
   render () {
@@ -32,6 +33,19 @@ class DesignSystem extends Component {
     const fontSizes = ['8px', '10px', '1rem', '150%', '1.75em', '2rem', '4rem', '8em']
     const fontSizeBlocks = fontSizes.map(size => <FontSizeBlock fontSize={size} />)
 
+    const fontFamilies = [
+      'sans-serif',
+      'monospace,serif',
+      'inherit',
+      'proxima-nova-alt,"Helvetica Neue",Helvetica,Arial,sans-serif',
+      'freight-text-pro,Georgia,serif',
+      'bustle-icons',
+      '"Helvetica Neue",Helvetica,Arial,sans-serif',
+      'flower-icons',
+      '"Helvetica Neue", "helvetica", "arial", "san-serif"'
+    ]
+    const fontFamilyBlocks = fontFamilies.map(fam => <FontFamilyBlock fontFamily={fam} className='f1' />)
+
     return (
       <div>
        <div className='pv5 pv6-ns ph2 ph4-ns bg-near-white'>
@@ -51,6 +65,10 @@ class DesignSystem extends Component {
         <div className='pa3'>
           <h3 className='code'>&lt;FontSizeBlock fontSize='1rem' /&gt;</h3>
           {fontSizeBlocks}
+        </div>
+        <div className='pa3'>
+          <h3 className='code'>&lt;FontFamilyBlock fontFamily='Helvetica,sans-serif' /&gt;</h3>
+          {fontFamilyBlocks}
         </div>
       </div>
     )
