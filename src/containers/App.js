@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { routeActions } from 'react-router-redux'
 
 import Header from '../components/Header'
-import FontColorBlock from '../components/FontColorBlock'
 
 function mapDispatchToProps (dispatch) {
   return {
