@@ -13,7 +13,7 @@ const FontColorBlock = ({ color, className }) => {
       <p className='f1 b ma0' style={style}>
         Aa
       </p>
-      <p className='ma0 f6 gray'>{color}</p>
+      <p className='ma0 f6 gray code'>{color}</p>
     </div>
   )
 }

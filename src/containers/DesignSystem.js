@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Flex, Box } from 'reflexbox'
 
 import FontColorBlock from '../components/FontColorBlock'
+import BgColorBlock from '../components/BgColorBlock'
 
 class DesignSystem extends Component {
   render () {
@@ -10,10 +11,19 @@ class DesignSystem extends Component {
       '#DB504A', '#FF6F59', '#254441', '#43AA8B', '#B2B09B',
       '#FFBD72', '#3D9992', '#9BCCA1', '#36935B', '#1C4441'
     ]
-    const fontColorBlocks = colors.map(color => {
+
+    const fontColorBlocks = colors.map((color, i) => {
       return (
         <Box col={2} p={2}>
-          <FontColorBlock color={color} />
+          <FontColorBlock color={color} key={i} />
+        </Box>
+      )
+    })
+
+    const bgColorBlocks = colors.map((color, i) => {
+      return (
+        <Box col={2} p={2}>
+          <BgColorBlock backgroundColor={color} key={i} />
         </Box>
       )
     })
@@ -29,6 +39,10 @@ class DesignSystem extends Component {
         <div className='pa3'>
           <h3 className='code'>&lt;FontColorBlock color='tomato' /&gt;</h3>
           <Flex wrap={true}>{fontColorBlocks}</Flex>
+        </div>
+        <div className='pa3'>
+          <h3 className='code'>&lt;BgColorBlock color='tomato' /&gt;</h3>
+          <Flex wrap={true}>{bgColorBlocks}</Flex>
         </div>
       </div>
     )
