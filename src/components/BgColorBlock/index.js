@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react'
 
 const BgColorBlock = ({ backgroundColor, className }) => {
-  console.log(backgroundColor)
   return (
     <div className={className}>
       <svg viewBox='0 0 64 64' width='64' height='64' style={{display: 'block', width: '100%', height: 'auto'}}>
