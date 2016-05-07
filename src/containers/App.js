@@ -7,6 +7,7 @@ import { Footer } from 'rebass'
 import { Flex, Box } from 'reflexbox'
 
 import Header from '../components/Header'
+import UrlForm from '../components/forms/url'
 
 function mapDispatchToProps (dispatch) {
   return {
@@ -15,12 +16,18 @@ function mapDispatchToProps (dispatch) {
 }
 
 class App extends Component {
+  handleSubmit (e) {
+    console.log(e)
+  }
+
   render () {
     const { props } = this
+
     return (
       <div>
         <Header />
         <div>
+          <UrlForm onSubmit={this.handleSubmit} />
           {props.children}
         </div>
         <Footer>
@@ -44,4 +51,11 @@ class App extends Component {
   }
 }
 
-export default App
+App.propTypes = {
+  location: PropTypes.object.isRequired,
+  navigate: PropTypes.func.isRequired
+}
+
+export default connect(
+  mapDispatchToProps
+)(App)
