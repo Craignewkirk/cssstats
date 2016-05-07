@@ -44,11 +44,4 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
-  location: PropTypes.object.isRequired,
-  navigate: PropTypes.func.isRequired
-}
-
-export default connect(
-  mapDispatchToProps
-)(App)
+export default App
