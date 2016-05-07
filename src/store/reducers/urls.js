@@ -9,22 +9,22 @@ const initialState = fromJS({
   isFetching: false
 })
 
-function urlsReducer(state = initialState, action = {}) {
+const urlsReducer = (state = initialState, action = {}) => {
   switch (action.type) {
 
-  case REQUEST_URL:
-    return state.merge({
-      isFetching: true,
-    })
+    case REQUEST_URL:
+      return state.merge({
+        isFetching: true
+      })
 
-  case RECEIVE_URL:
-    return state.merge({
-      isFetching: false,
-      url: action.url
-    })
+    case RECEIVE_URL:
+      return state.merge({
+        isFetching: false,
+        url: action.url
+      })
 
-  default:
-    return state
+    default:
+      return state
   }
 }
 
@@ -32,25 +32,25 @@ export default urlsReducer
 
 /* Actions */
 
-export function requestUrl(url) {
+export const requestUrl = (url) => {
   return {
     type: REQUEST_URL,
-		url: url
+    url: url
   }
 }
 
-function receiveUrl(json) {
+const receiveUrl = (json) => {
   return {
     type: RECEIVE_URL,
     url: json
   }
 }
 
-function shouldFetchUrl() {
+const shouldFetchUrl = () => {
   return true // Let's not worry about caching for now
 }
 
-function fetchUrl(url) {
+const fetchUrl = (url) => {
   return dispatch => {
     dispatch(requestUrl(url))
     return fetch(`http://api.cssstats.com/stats?url=${url}`)
@@ -59,7 +59,7 @@ function fetchUrl(url) {
   }
 }
 
-export function fetchUrlIfNeeded(url) {
+export const fetchUrlIfNeeded = (url) => {
   return (dispatch, getState) => {
     if (shouldFetchUrl(getState())) {
       return dispatch(fetchUrl(url))

@@ -13,12 +13,12 @@ test('initializes with state', t => {
 })
 
 test('REQUEST_URL sets isFetching to true', t => {
-  state = fireAction('REQUEST_URL', state, 'http://google.com')
+  state = fireAction(REQUEST_URL, state, 'http://google.com')
   t.true(state.get('isFetching'))
 })
 
 test('RECEIVE_URL sets isFetching to false', t => {
-  state = fireAction('RECEIVE_URL', state, 'http://google.com')
+  state = fireAction(RECEIVE_URL, state, 'http://google.com')
   t.false(state.get('isFetching'))
 })
 
