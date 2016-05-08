@@ -46,9 +46,7 @@ const receiveUrl = (json) => {
   }
 }
 
-const shouldFetchUrl = () => {
-  return true // Let's not worry about caching for now
-}
+const shouldFetchUrl = () => true
 
 const fetchUrl = (url) => {
   return dispatch => {
@@ -62,6 +60,7 @@ const fetchUrl = (url) => {
 export const fetchUrlIfNeeded = (url) => {
   return (dispatch, getState) => {
     if (shouldFetchUrl(getState())) {
+      console.log('hi')
       return dispatch(fetchUrl(url))
     }
   }

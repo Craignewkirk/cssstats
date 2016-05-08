@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { routeActions } from 'react-router-redux'
 import { Link } from 'react-router'
@@ -9,16 +9,10 @@ import { Flex, Box } from 'reflexbox'
 import Header from '../components/Header'
 import UrlForm from '../components/forms/url'
 
-function mapDispatchToProps (dispatch) {
-  return {
-    navigate: (route) => dispatch(routeActions.push(route))
-  }
-}
-
-class App extends Component {
+const App = React.createClass({
   handleSubmit (e) {
-    console.log(e)
-  }
+    this.context.router.push(`stats?url=${e.url}`)
+  },
 
   render () {
     const { props } = this
@@ -49,11 +43,21 @@ class App extends Component {
       </div>
     )
   }
-}
+})
 
 App.propTypes = {
   location: PropTypes.object.isRequired,
   navigate: PropTypes.func.isRequired
+}
+
+App.contextTypes = {
+  router: PropTypes.object
+}
+
+function mapDispatchToProps (dispatch) {
+  return {
+    navigate: (route) => dispatch(routeActions.push(route))
+  }
 }
 
 export default connect(
