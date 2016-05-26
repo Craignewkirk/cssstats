@@ -3,9 +3,12 @@ import fetch from 'isomorphic-fetch'
 
 const REQUEST_URL = 'REQUEST_URL'
 const RECEIVE_URL = 'RECEIVE_URL'
+const RECEIVE_URLS = 'RECEIVE_URLS'
+const REQUEST_URLS = 'REQUEST_URLS'
 
 const initialState = fromJS({
   url: {},
+  urls: [],
   isFetching: false
 })
 
@@ -13,6 +16,7 @@ const urlsReducer = (state = initialState, action = {}) => {
   switch (action.type) {
 
     case REQUEST_URL:
+    case REQUEST_URLS:
       return state.merge({
         isFetching: true
       })
@@ -21,6 +25,12 @@ const urlsReducer = (state = initialState, action = {}) => {
       return state.merge({
         isFetching: false,
         url: action.url
+      })
+
+    case RECEIVE_URLS:
+      return state.merge({
+        isFetching: false,
+        urls: action.urls
       })
 
     default:
@@ -46,7 +56,17 @@ const receiveUrl = json => {
   }
 }
 
+export const requestUrls = () => ({
+  type: REQUEST_URLS
+})
+
+const receiveUrls = json => ({
+  type: RECEIVE_URLS,
+  urls: json
+})
+
 const shouldFetchUrl = () => true
+const shouldFetchUrls = () => true
 
 const fetchUrl = url => {
   return dispatch => {
@@ -57,10 +77,27 @@ const fetchUrl = url => {
   }
 }
 
+const fetchUrls = () => {
+  return dispatch => {
+    dispatch(requestUrls())
+    return fetch('http://cssstats-pro.herokuapp.com/urls')
+      .then(req => req.json())
+      .then(json => dispatch(receiveUrls(json)))
+  }
+}
+
 export const fetchUrlIfNeeded = url => {
   return (dispatch, getState) => {
     if (shouldFetchUrl(getState())) {
       return dispatch(fetchUrl(url))
+    }
+  }
+}
+
+export const fetchUrlsIfNeeded = () => {
+  return (dispatch, getState) => {
+    if (shouldFetchUrls(getState())) {
+      return dispatch(fetchUrls())
     }
   }
 }

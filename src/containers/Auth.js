@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
+import cookie from 'react-cookie'
 
 export default (Component) => {
   const Auth = React.createClass({
@@ -12,8 +13,7 @@ export default (Component) => {
     },
 
     componentDidMount () {
-      console.log(this.props)
-      if (!this.props.authenticated) {
+      if (!cookie.load('email') || !cookie.load('token')) {
         this.context.router.push('/login')
       }
     },

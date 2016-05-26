@@ -26,6 +26,7 @@ const App = React.createClass({
 
     return (
       <div>
+        <Link to='/urls'>Urls</Link>
         <Header isAuthed={isAuthed}>
           <UrlForm onSubmit={this.handleSubmit} className='dib ml2 mv0' />
         </Header>
