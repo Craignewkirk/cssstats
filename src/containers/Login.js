@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
+import cookie from 'react-cookie'
 
 import { loginIfNeeded } from '../store/reducers/login'
 import LoginForm from '../components/forms/login'
@@ -14,10 +15,11 @@ const Login = React.createClass({
   },
 
   handleSubmit (e) {
-    console.log(e)
-    console.log(this.props)
-    this.props.loginIfNeeded(e.email, e.password)
-    this.context.router.push('/')
+    this.props.loginIfNeeded(e.email, e.password).then(response => {
+      cookie.save('token', response.auth.token)
+      cookie.save('email', response.auth.email)
+      this.context.router.push('/')
+    })
   },
 
   componentWillUpdate (nextProps) {
