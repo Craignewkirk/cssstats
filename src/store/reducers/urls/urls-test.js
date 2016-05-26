@@ -1,7 +1,7 @@
 import test from 'ava'
 import { Map } from 'immutable'
 
-import urlsReducer from './urls'
+import urlsReducer from './'
 
 const RECEIVE_URL = 'RECEIVE_URL'
 const REQUEST_URL = 'REQUEST_URL'
