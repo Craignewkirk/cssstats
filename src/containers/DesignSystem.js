@@ -16,16 +16,16 @@ class DesignSystem extends Component {
 
     const fontColorBlocks = colors.map((color, i) => {
       return (
-        <Box col={2} p={2}>
-          <FontColorBlock color={color} key={i} />
+        <Box col={2} p={2} key={i}>
+          <FontColorBlock color={color} />
         </Box>
       )
     })
 
     const bgColorBlocks = colors.map((color, i) => {
       return (
-        <Box col={2} p={2}>
-          <BgColorBlock backgroundColor={color} key={i} />
+        <Box col={2} p={2} key={i}>
+          <BgColorBlock backgroundColor={color} />
         </Box>
       )
     })

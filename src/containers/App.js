@@ -55,11 +55,9 @@ App.contextTypes = {
   router: PropTypes.object
 }
 
-function mapDispatchToProps (dispatch) {
-  return {
-    navigate: (route) => dispatch(routeActions.push(route))
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  navigate: route => dispatch(routeActions.push(route))
+})
 
 export default connect(
   mapDispatchToProps

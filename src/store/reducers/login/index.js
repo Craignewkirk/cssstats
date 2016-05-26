@@ -5,7 +5,6 @@ const REQUEST_LOGIN = 'REQUEST_LOGIN'
 const RECEIVE_LOGIN = 'RECEIVE_LOGIN'
 
 const initialState = fromJS({
-  auth: {},
   isFetching: false
 })
 
@@ -20,7 +19,7 @@ const loginReducer = (state = initialState, action = {}) => {
     case RECEIVE_LOGIN:
       return state.merge({
         isFetching: false,
-        auth: { authenticated: true, token: action.token }
+        authenticated: true
       })
 
     default:

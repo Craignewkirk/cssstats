@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { Link } from 'react-router'
 import { Flex, Box } from 'reflexbox'
 
 const Header = ({ children, isAuthed }) => {
@@ -25,7 +26,7 @@ const AuthedNav = () => {
 }
 
 const Nav = () => {
-  return <a className='link gray' href='#'>Log In</a>
+  return <Link className='link gray' to='/login'>Log In</Link>
 }
 
 Header.propTypes = {
