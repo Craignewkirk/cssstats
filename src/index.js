@@ -10,7 +10,7 @@ import configureStore from './store'
 
 import './styles/app.css'
 
-const initialState = {}
+const initialState = { auth: {} }
 const store = configureStore(initialState)
 
 ReactDOM.render(
