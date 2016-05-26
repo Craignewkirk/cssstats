@@ -6,7 +6,9 @@ import isBlank from 'is-blank'
 import { Flex, Box } from 'reflexbox'
 import { Stat } from 'rebass'
 
+import FontFamilyBlock from '../components/FontFamilyBlock'
 import FontColorBlock from '../components/FontColorBlock'
+import FontSizeBlock from '../components/FontSizeBlock'
 import BgColorBlock from '../components/BgColorBlock'
 
 import { fetchUrlIfNeeded } from '../store/reducers/urls'
@@ -40,6 +42,8 @@ const Stats = React.createClass({
     const { url: { stats: { declarations: { properties } } } } = this.props
     const { url: { stats: { declarations: { properties: { color: colors } } } } } = this.props
     const { url: { stats: { declarations: { properties: { 'background-color': bgColors } } } } } = this.props
+    const { url: { stats: { declarations: { properties: { 'font-size': fontSizes } } } } } = this.props
+    const { url: { stats: { declarations: { properties: { 'font-family': fontFamilies } } } } } = this.props
 
     return (
       <div>
@@ -88,25 +92,33 @@ const Stats = React.createClass({
             <Stat label='Background Color' value={(properties['background-color'] || []).length} topLabel />
           </div>
         </div>
-        <div className='cf pv3'>
+        <div className='pv3'>
           <h3>Colors</h3>
           <Flex wrap>
-            {colors.map((color, i)  => (
+            {colors.map((color, i) => (
               <Box col={4} p={2}>
                 <FontColorBlock color={color} key={i} />
               </Box>
             ))}
           </Flex>
         </div>
-        <div className='cf pv3'>
+        <div className='pv3'>
           <h3>Background Colors</h3>
           <Flex wrap>
-            {bgColors.map((color, i)  => (
+            {bgColors.map((color, i) => (
               <Box col={4} p={2}>
                 <BgColorBlock backgroundColor={color} key={i} />
               </Box>
             ))}
           </Flex>
+        </div>
+        <div className='pv3'>
+          <h3>Font Sizes</h3>
+          {fontSizes.map((size, i) => <FontSizeBlock fontSize={size} key={i} />)}
+        </div>
+        <div className='pv3'>
+          <h3>Font Families</h3>
+          {fontFamilies.map((family, i) => <FontFamilyBlock fontFamily={family} key={i} />)}
         </div>
       </div>
     )
