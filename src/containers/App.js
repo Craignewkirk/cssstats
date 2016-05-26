@@ -10,22 +10,29 @@ import Header from '../components/Header'
 import UrlForm from '../components/forms/url'
 
 const App = React.createClass({
+  propTypes: {
+    isAuthed: PropTypes.bool,
+    children: PropTypes.object,
+    location: PropTypes.object.isRequired,
+    navigate: PropTypes.func.isRequired
+  },
+
   handleSubmit (e) {
     this.context.router.push(`stats?url=${e.url}`)
   },
 
   render () {
-    const { props } = this
+    const { isAuthed, children } = this.props
 
     return (
       <div>
-        <Header>
+        <Header isAuthed={isAuthed}>
           <UrlForm onSubmit={this.handleSubmit} className='dib ml2 mv0' />
         </Header>
         <div>
-          {props.children}
+          {children}
         </div>
-        <Footer>
+        <Footer style={{ borderColor: '#eee' }}>
           <Flex align='center' className='w-100 ph3'>
             <Box col={6}>
               Made by <a className='link gray b' href='http://mrmrs.cc'>Mrmrs</a>, <a className='link gray b' href='http://jxnblk.com'>Jxnblk</a> & <a className='link gray b' href='http://johnotander.com'>4lpine</a>
@@ -46,19 +53,19 @@ const App = React.createClass({
   }
 })
 
-App.propTypes = {
-  location: PropTypes.object.isRequired,
-  navigate: PropTypes.func.isRequired
-}
-
 App.contextTypes = {
   router: PropTypes.object
 }
+
+const mapStateToProps = state => ({
+  isAuthed: state.login.get('authenticated')
+})
 
 const mapDispatchToProps = dispatch => ({
   navigate: route => dispatch(routeActions.push(route))
 })
 
 export default connect(
+  mapStateToProps,
   mapDispatchToProps
 )(App)

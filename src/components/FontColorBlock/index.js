@@ -4,7 +4,7 @@ import { isAccessible } from 'get-contrast'
 const FontColorBlock = ({ color, className }) => {
   const style = { color }
 
-  if (!isAccessible(color, 'white')) {
+  if (color !== 'inherit' && !isAccessible(color, 'white')) {
     style.textShadow = '0 0 transparent' // TODO: A real outline would be nice.
   }
 
