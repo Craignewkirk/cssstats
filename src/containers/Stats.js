@@ -3,8 +3,10 @@ import { routeActions } from 'react-router-redux'
 import { connect } from 'react-redux'
 import isBlank from 'is-blank'
 
+import _ from 'lodash'
 import { Flex, Box } from 'reflexbox'
 import { Stat } from 'rebass'
+import { VictoryBar, VictoryStack, VictoryPie } from 'victory'
 
 import FontFamilyBlock from '../components/FontFamilyBlock'
 import FontColorBlock from '../components/FontColorBlock'
@@ -106,8 +108,8 @@ const Stats = React.createClass({
           <h3>Background Colors</h3>
           <Flex wrap>
             {bgColors.map((color, i) => (
-              <Box col={4} p={2}>
-                <BgColorBlock backgroundColor={color} key={i} />
+              <Box col={4} p={2} key={i}>
+                <BgColorBlock backgroundColor={color} />
               </Box>
             ))}
           </Flex>
@@ -119,6 +121,33 @@ const Stats = React.createClass({
         <div className='pv3'>
           <h3>Font Families</h3>
           {fontFamilies.map((family, i) => <FontFamilyBlock fontFamily={family} key={i} />)}
+        </div>
+        <h3>Total vs. Unique Declarations</h3>
+        <div className='w-80 center ph3'>
+          <VictoryStack horizontal height={150} offset={20} colorScale={'qualitative'} style={{ labels: { fontSize: 5 } }}>
+            <VictoryBar data={[{ x: 1, y: properties.width.length }, { x: 2, y: _.uniq(properties.width).length }]} />
+            <VictoryBar data={[{ x: 1, y: properties.height.length }, { x: 2, y: _.uniq(properties.height).length }]} />
+            <VictoryBar data={[{ x: 1, y: properties.margin.length }, { x: 2, y: _.uniq(properties.margin).length }]} />
+            <VictoryBar data={[{ x: 1, y: properties.padding.length }, { x: 2, y: _.uniq(properties.padding).length }]} />
+            <VictoryBar data={[{ x: 1, y: properties.color.length }, { x: 2, y: _.uniq(properties.color).length }]} />
+            <VictoryBar data={[{ x: 1, y: properties['background-color'].length, label: 'total' }, { x: 2, y: _.uniq(properties['background-color']).length, label: 'unique' }]} />
+          </VictoryStack>
+        </div>
+        <h3>Specificity</h3>
+        <VictoryBar width={1000} data={selectors.specificity.graph.map((y, i) => ({ x: i + 1, y }))} />
+        <p className='gray f6 tc mv0'>
+          Base 10 specificity score for each selector by source order.
+          Generally, lower scores and flatter curves are better for maintainability.
+          <a href='http://csswizardry.com/2014/10/the-specificity-graph/'>Learn More</a>
+        </p>
+        <h3>Ruleset Sizes</h3>
+        <VictoryBar width={1000} data={rules.size.graph.map((y, i) => ({ x: i + 1, y }))} />
+        <h3>Declarations</h3>
+        <div className='w-60 center'>
+          <VictoryPie
+            innerRadius={100}
+            style={{ labels: { fontSize: 5 } }}
+            data={Object.keys(properties).map(prop => ({ x: prop, y: properties[prop].length }))} />
         </div>
       </div>
     )
