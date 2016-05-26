@@ -3,19 +3,25 @@ import { reduxForm } from 'redux-form'
 
 class UrlForm extends Component {
   render () {
-    const { fields: { url }, handleSubmit } = this.props
+    const { className, fields: { url }, handleSubmit } = this.props
 
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={className}>
         <label className='dn'>Url</label>
-        <input type='url' placeholder='https://google.com' {...url} />
-        <button type='submit'>Submit</button>
+        <input
+          type='url'
+          placeholder='https://google.com'
+          className='pa2 ba br2 b--light-gray'
+          {...url}
+        />
+        <button type='submit' className='dn'>Submit</button>
       </form>
     )
   }
 }
 
 UrlForm.propTypes = {
+  className: PropTypes.string,
   fields: PropTypes.object.isRequired,
   handleSubmit: PropTypes.func.isRequired
 }

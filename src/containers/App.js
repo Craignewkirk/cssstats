@@ -19,9 +19,10 @@ const App = React.createClass({
 
     return (
       <div>
-        <Header />
+        <Header>
+          <UrlForm onSubmit={this.handleSubmit} className='dib ml2 mv0' />
+        </Header>
         <div>
-          <UrlForm onSubmit={this.handleSubmit} />
           {props.children}
         </div>
         <Footer>
