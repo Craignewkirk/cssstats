@@ -51,9 +51,16 @@ const shouldFetchLogin = () => true
 const fetchLogin = (email, password) => {
   return dispatch => {
     dispatch(requestLogin(email, password))
-    return fetch(`http://api.cssstats.com/users/sessions`)
-      .then(req => req.json())
-      .then(json => dispatch(receiveLogin(json)))
+    return fetch('http://cssstats-pro.herokuapp.com/users/sign_in', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ user: { email, password } })
+    })
+    .then(req => req.json())
+    .then(json => dispatch(receiveLogin(json)))
   }
 }
 

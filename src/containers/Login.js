@@ -1,12 +1,22 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { routeActions } from 'react-router-redux'
 
+import { loginIfNeeded } from '../store/reducers/login'
 import LoginForm from '../components/forms/login'
 
 const Login = React.createClass({
+  propTypes: {
+    loginIfNeeded: PropTypes.func.isRequired
+  },
+
+  contextTypes: {
+    router: PropTypes.object
+  },
+
   handleSubmit (e) {
     console.log(e)
+    console.log(this.props)
+    this.props.loginIfNeeded(e.email, e.password)
     this.context.router.push('/')
   },
 
@@ -18,26 +28,20 @@ const Login = React.createClass({
 
   render () {
     return (
-      <LoginForm onSubmit={this.handleSubmit} />
+      <LoginForm onSubmit={this.handleSubmit} auth={{}}/>
     )
   }
 })
 
-Login.propTypes = {
-  location: PropTypes.object.isRequired,
-  navigate: PropTypes.func.isRequired
-}
+const mapStateToProps = state => ({
+  isFetching: state.auth && state.auth.get('isFetching')
+})
 
-Login.contextTypes = {
-  router: PropTypes.object
-}
-
-function mapDispatchToProps (dispatch) {
-  return {
-    navigate: (route) => dispatch(routeActions.push(route))
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  loginIfNeeded: (email, password) => dispatch(loginIfNeeded(email, password))
+})
 
 export default connect(
+  mapStateToProps,
   mapDispatchToProps
 )(Login)
