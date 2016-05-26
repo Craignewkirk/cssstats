@@ -20,7 +20,7 @@ const loginReducer = (state = initialState, action = {}) => {
       console.log(action)
       return state.merge({
         isFetching: false,
-        authenticated: !action.auth.error
+        authenticated: !(action.auth && action.auth.error)
       })
 
     default:
