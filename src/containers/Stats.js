@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import { routeActions } from 'react-router-redux'
 import { connect } from 'react-redux'
+import isBlank from 'is-blank'
 
 import { fetchUrlIfNeeded } from '../store/reducers/urls'
 
@@ -22,7 +23,11 @@ const Stats = React.createClass({
   },
 
   render () {
-    const { url: { stats: stats } } = this.props
+    const { url: { stats } } = this.props
+
+    if (isBlank(stats)) {
+      return <h1>Loading</h1>
+    }
 
     return (
       <div>

@@ -32,14 +32,14 @@ export default urlsReducer
 
 /* Actions */
 
-export const requestUrl = (url) => {
+export const requestUrl = url => {
   return {
     type: REQUEST_URL,
     url: url
   }
 }
 
-const receiveUrl = (json) => {
+const receiveUrl = json => {
   return {
     type: RECEIVE_URL,
     url: json
@@ -48,7 +48,7 @@ const receiveUrl = (json) => {
 
 const shouldFetchUrl = () => true
 
-const fetchUrl = (url) => {
+const fetchUrl = url => {
   return dispatch => {
     dispatch(requestUrl(url))
     return fetch(`http://api.cssstats.com/stats?url=${url}`)
@@ -57,10 +57,9 @@ const fetchUrl = (url) => {
   }
 }
 
-export const fetchUrlIfNeeded = (url) => {
+export const fetchUrlIfNeeded = url => {
   return (dispatch, getState) => {
     if (shouldFetchUrl(getState())) {
-      console.log('hi')
       return dispatch(fetchUrl(url))
     }
   }
