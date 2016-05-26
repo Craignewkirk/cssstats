@@ -3,35 +3,38 @@ import { reduxForm } from 'redux-form'
 
 class LoginForm extends Component {
   render () {
-    const { className, fields: { email, password }, error, handleSubmit } = this.props
+    const { className, fields: { email, password }, errorMsg, handleSubmit } = this.props
 
-    const errorMsg = error && <h3>${error}</h3>
+    const errorMsgDiv = errorMsg && <p className='pa3 bg-red white tc'>{errorMsg}</p>
     return (
       <form onSubmit={handleSubmit} className={className}>
-        {errorMsg}
+        {errorMsgDiv}
         <label className='b db'>Email</label>
         <input
           type='email'
           placeholder='user@example.com'
-          className='pa2 ba br2 b--light-gray'
+          className='pa3 ba br2 b--light-gray db w-100 mb3'
           {...email}
         />
         <label className='b db'>Password</label>
         <input
           type='password'
-          placeholder='*******'
-          className='pa2 ba br2 b--light-gray'
+          placeholder='***********'
+          className='pa3 ba br2 b--light-gray db w-100 mb3'
           {...password}
         />
-        <br />
-        <button type='submit'>Log In</button>
+        <button
+          type='submit'
+          className='pa3 bn br2 white bg-green db w-100'>
+          Log In
+        </button>
       </form>
     )
   }
 }
 
 LoginForm.propTypes = {
-  error: PropTypes.string,
+  errorMsg: PropTypes.string,
   className: PropTypes.string,
   fields: PropTypes.object.isRequired,
   handleSubmit: PropTypes.func.isRequired

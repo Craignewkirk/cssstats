@@ -11,8 +11,8 @@ import DesignSystem from '../containers/DesignSystem'
 const routes = (
   <Route path='/' component={App}>
     <Route path='login' component={Login} />
-    <Route path='design-system' component={Auth(DesignSystem)} />
-    <Route path='about' component={Urls} />
+    <Route path='design-system' component={DesignSystem} />
+    <Route path='urls' component={Auth(Urls)} />
     <Route path='stats' component={Stats} />
   </Route>
 )

@@ -17,9 +17,10 @@ const loginReducer = (state = initialState, action = {}) => {
       })
 
     case RECEIVE_LOGIN:
+      console.log(action)
       return state.merge({
         isFetching: false,
-        authenticated: true
+        authenticated: !!action.auth.error
       })
 
     default:

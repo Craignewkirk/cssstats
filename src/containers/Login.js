@@ -6,6 +6,10 @@ import { loginIfNeeded } from '../store/reducers/login'
 import LoginForm from '../components/forms/login'
 
 const Login = React.createClass({
+  getInitialState () {
+    return { errorMsg: null }
+  },
+
   propTypes: {
     loginIfNeeded: PropTypes.func.isRequired
   },
@@ -18,19 +22,21 @@ const Login = React.createClass({
     this.props.loginIfNeeded(e.email, e.password).then(response => {
       cookie.save('token', response.auth.token)
       cookie.save('email', response.auth.email)
+
       this.context.router.push('/')
     })
-  },
-
-  componentWillUpdate (nextProps) {
-    if (nextProps.authenticated) {
-      this.context.router.push('/design-system')
-    }
+    .catch(() => {
+      this.setState({ errorMsg: 'Invalid email or password' })
+    })
   },
 
   render () {
     return (
-      <LoginForm onSubmit={this.handleSubmit} auth={{}}/>
+      <div className='pa3 pa5-ns measure center'>
+        <LoginForm
+          onSubmit={this.handleSubmit}
+          errorMsg={this.state.errorMsg} />
+      </div>
     )
   }
 })

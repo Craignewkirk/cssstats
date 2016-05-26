@@ -11,7 +11,7 @@ class UrlForm extends Component {
         <input
           type='url'
           placeholder='https://google.com'
-          className='pa2 ba br2 b--light-gray'
+          className='pa3 normal ba br2 b--light-gray'
           {...url}
         />
         <button type='submit' className='dn'>Submit</button>
