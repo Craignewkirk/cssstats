@@ -1,5 +1,6 @@
 import { fromJS } from 'immutable'
 import fetch from 'isomorphic-fetch'
+import cookie from 'react-cookie'
 
 const REQUEST_URL = 'REQUEST_URL'
 const RECEIVE_URL = 'RECEIVE_URL'
@@ -80,9 +81,14 @@ const fetchUrl = url => {
 const fetchUrls = () => {
   return dispatch => {
     dispatch(requestUrls())
-    return fetch('http://cssstats-pro.herokuapp.com/urls')
-      .then(req => req.json())
-      .then(json => dispatch(receiveUrls(json)))
+    return fetch('http://cssstats-pro.herokuapp.com/urls', {
+      headers: {
+        'X-User-Email': cookie.load('email'),
+        'X-User-Token': cookie.load('token')
+      }
+    })
+    .then(req => req.json())
+    .then(json => dispatch(receiveUrls(json)))
   }
 }
 
