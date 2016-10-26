@@ -10,6 +10,7 @@
   },
   "repository": "cssstats/cssstats",
   "dependencies": {
+    "is-blank": "^1.1.0",
     "isomorphic-fetch": "^2.2.1",
     "next": "^1.0.0",
     "rebass": "^0.3.3"
