@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img width="200" src="https://rawgit.com/cssstats/logo/master/logo.png" alt="cssstats-logo">
+  <img width="200" src="https://rawgit.com/cssstats/logo/master/logo.png" alt="cssstats-logo"> <br>
   Css Stats
 </h1>
 
