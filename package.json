@@ -12,6 +12,8 @@
   "dependencies": {
     "cssstats": "^3.0.0-beta.2",
     "get-css": "^1.2.1",
+    "get-query-param": "^1.0.0",
+    "isomorphic-fetch": "^2.2.1",
     "next": "^1.0.0",
     "rebass": "^0.3.3"
   }

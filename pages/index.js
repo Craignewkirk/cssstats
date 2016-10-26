@@ -15,19 +15,19 @@ export default class extends React.Component {
 
   constructor (props) {
     super(props)
-    this.state = { uri: '' }
+    this.state = { url: '' }
     this.handleUriChange = this.handleUriChange.bind(this)
     this.handleUriSubmit = this.handleUriSubmit.bind(this)
   }
 
-  handleUriChange (e) {
+  handleUrlChange (e) {
     this.setState({
-      uri: e.target.value
+      url: e.target.value
     })
   }
 
-  handleUriSubmit (e) {
-    this.props.url.pushTo(`/stats?uri=${this.state.uri}`)
+  handleUrlSubmit (e) {
+    this.props.url.pushTo(`/stats?url=${this.state.url}`)
     e.preventDefault()
   }
 
@@ -36,13 +36,13 @@ export default class extends React.Component {
       <div className={c(style)}>
         <h1>Css Stats</h1>
         <InlineForm
-          label='uri'
-          name='uri'
+          label='url'
+          name='url'
           type='url'
           buttonLabel='Get Stats'
           placeholder='Input a url, domain, or direct css link'
-          onChange={this.handleUriChange}
-          onClick={this.handleUriSubmit}
+          onChange={this.handleUrlChange}
+          onClick={this.handleUrlSubmit}
         />
       </div>
     )
