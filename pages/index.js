@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { InlineForm } from 'rebass'
+import { InlineForm, Section, Heading, Container } from 'rebass'
 
 import Header from '../components/header'
 
@@ -36,18 +36,23 @@ export default class extends React.Component {
   render () {
     return (
       <div className={c(style)}>
-        <Header url={this.props.url} />
-        <div style={{paddingTop: 48}}>
-          <InlineForm
-            label='url'
-            name='url'
-            type='url'
-            buttonLabel='Get Stats'
-            placeholder='Input a url, domain, or direct css link'
-            onChange={this.handleUrlChange}
-            onClick={this.handleUrlSubmit}
-          />
-        </div>
+        <Container>
+          <Header url={this.props.url} />
+          <div style={{paddingTop: 48}}>
+            <Section>
+              <Heading level={1} children='Parse Css' mb={2} />
+              <InlineForm
+                label='url'
+                name='url'
+                type='url'
+                buttonLabel='Get Stats'
+                placeholder='Input a url, domain, or direct css link'
+                onChange={this.handleUrlChange}
+                onClick={this.handleUrlSubmit}
+              />
+            </Section>
+          </div>
+        </Container>
       </div>
     )
   }
