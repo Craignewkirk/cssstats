@@ -1,5 +1,6 @@
 import React from 'react'
-import { NavItem, Toolbar, Fixed, Space } from 'rebass'
+import { Toolbar, Fixed, Space } from 'rebass'
+import Link from '../components/relink'
 import style from '../style'
 
 export default ({ url }) => (
@@ -8,12 +9,14 @@ export default ({ url }) => (
       color: style.color,
       backgroundColor: style.backgroundColor
     }}>
-      <NavItem
-        onClick={() => url.pushTo('/')}
+      <Link
+        href='/'
+        url={url}
         children='Css Stats'
       />
       <Space auto x={1} />
-      <NavItem
+      <Link
+        url={url}
         href='https://github.com/cssstats/cssstats'
         children='GitHub'
       />

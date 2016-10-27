@@ -1,7 +1,10 @@
 import React, { PropTypes } from 'react'
-import { InlineForm, Section, Heading, Container } from 'rebass'
+import Link from '../components/relink'
+import { Container } from 'rebass'
 
 import Header from '../components/header'
+import UrlForm from '../components/url-form'
+import PopularSites from '../components/popular-sites'
 
 import c from 'next/css'
 import style from '../style'
@@ -10,7 +13,7 @@ export default class extends React.Component {
   static getInitialProps () {
     return {
       sites: [
-        'google.com'
+        'google.com', 'yahoo.com', 'twitter.com'
       ]
     }
   }
@@ -39,18 +42,14 @@ export default class extends React.Component {
         <Container>
           <Header url={this.props.url} />
           <div style={{paddingTop: 48}}>
-            <Section>
-              <Heading level={1} children='Parse Css' mb={2} />
-              <InlineForm
-                label='url'
-                name='url'
-                type='url'
-                buttonLabel='Get Stats'
-                placeholder='Input a url, domain, or direct css link'
-                onChange={this.handleUrlChange}
-                onClick={this.handleUrlSubmit}
-              />
-            </Section>
+            <UrlForm
+              onChange={this.handleUrlChange}
+              onSubmit={this.handleUrlSubmit}
+            />
+            <PopularSites
+              sites={this.props.sites}
+              url={this.props.url}
+            />
           </div>
         </Container>
       </div>
