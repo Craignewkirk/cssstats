@@ -10,11 +10,12 @@ export default ({ sites, url }) => (
     />
     {sites.map(site => (
       <Link
-        url={url}
-        href={`/stats?url=${site}`}
-        children={site}
         py={2}
         pr={2}
+        url={url}
+        key={site}
+        href={`/stats?url=${site}`}
+        children={site}
         style={{display: 'inline-block'}}
       />
     ))}

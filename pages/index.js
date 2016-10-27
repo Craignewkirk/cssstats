@@ -1,14 +1,9 @@
 import React, { PropTypes } from 'react'
 import Link from '../components/relink'
-import { Container } from 'rebass'
 
-import Header from '../components/header'
-import Footer from '../components/footer'
+import Layout from '../components/layout'
 import UrlForm from '../components/url-form'
 import PopularSites from '../components/popular-sites'
-
-import c from 'next/css'
-import style from '../style'
 
 export default class extends React.Component {
   static getInitialProps () {
@@ -43,22 +38,16 @@ export default class extends React.Component {
 
   render () {
     return (
-      <div className={c(style)}>
-        <Container>
-          <Header url={this.props.url} />
-          <div style={{paddingTop: 48}}>
-            <UrlForm
-              onChange={this.handleUrlChange}
-              onSubmit={this.handleUrlSubmit}
-            />
-            <PopularSites
-              sites={this.props.sites}
-              url={this.props.url}
-            />
-          </div>
-          <Footer />
-        </Container>
-      </div>
+      <Layout>
+        <UrlForm
+          onChange={this.handleUrlChange}
+          onSubmit={this.handleUrlSubmit}
+        />
+        <PopularSites
+          sites={this.props.sites}
+          url={this.props.url}
+        />
+      </Layout>
     )
   }
 }
