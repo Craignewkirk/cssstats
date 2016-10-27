@@ -1,9 +1,15 @@
 import React from 'react'
 import isBlank from 'is-blank'
 import fetch from 'isomorphic-fetch'
+import bytes from 'pretty-bytes'
+import uniq from 'lodash.uniq'
 
-import { Section, SectionHeader } from 'rebass'
-import Header from '../components/header'
+import { SectionHeader } from 'rebass'
+import Layout from '../components/layout'
+import DeclarationStats from '../components/declaration-stats'
+import TopLevelStats from '../components/top-level-stats'
+import BackgroundColors from '../components/background-colors'
+import Colors from '../components/colors'
 
 import c from 'next/css'
 import style from '../style'
@@ -41,21 +47,31 @@ export default class extends React.Component {
     const { title, stats } = this.state || {}
     const { url: { query: { url } } } = this.props
 
+    console.log(stats)
     if (isBlank(stats)) {
       this.getStats()
       return <h1>Loading</h1>
     }
 
     return (
-      <div className={c(style)}>
-        <Header url={this.props.url} />
-        <div style={{paddingTop: 48}}>
-          <SectionHeader
-            description={url}
-            heading={title}
-          />
-        </div>
-      </div>
+      <Layout>
+        <SectionHeader
+          description={url}
+          heading={title}
+        />
+        <TopLevelStats stats={stats} />
+        <DeclarationStats declarations={stats.declarations} />
+        <Colors
+          colors={
+            uniq(stats.declarations.properties.color.map(c => c.toLowerCase()))
+          }
+        />
+        <BackgroundColors
+          backgroundColors={
+            uniq(stats.declarations.properties['background-color'].map(c => c.toLowerCase()))
+          }
+        />
+      </Layout>
     )
   }
 }

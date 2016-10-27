@@ -12,7 +12,10 @@
   "dependencies": {
     "is-blank": "^1.1.0",
     "isomorphic-fetch": "^2.2.1",
+    "lodash.uniq": "^4.5.0",
     "next": "^1.0.0",
-    "rebass": "^0.3.3"
+    "pretty-bytes": "^4.0.2",
+    "rebass": "^0.3.3",
+    "reflexbox": "^2.2.2"
   }
 }
