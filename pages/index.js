@@ -3,6 +3,7 @@ import Link from '../components/relink'
 import { Container } from 'rebass'
 
 import Header from '../components/header'
+import Footer from '../components/footer'
 import UrlForm from '../components/url-form'
 import PopularSites from '../components/popular-sites'
 
@@ -13,7 +14,11 @@ export default class extends React.Component {
   static getInitialProps () {
     return {
       sites: [
-        'google.com', 'yahoo.com', 'twitter.com'
+        'google.com', 'yahoo.com', 'twitter.com', 'facebook.com', 'tumblr.com', 'apple.com',
+        'youtube.com', 'pinterest.com', 'medium.com', 'paypal.com', 'stripe.com', 'trulia.com',
+        'wikipedia.org', 'craigslist.org', 'github.com', 'stackoverflow.com', 'nytimes.com',
+        'theguardian.com', 'mozilla.org', 'flickr.com', 'soundcloud.com', 'envoy.com', 'bbc.com',
+        'kickstarter.com', 'etsy.com', 'mapbox.com'
       ]
     }
   }
@@ -51,6 +56,7 @@ export default class extends React.Component {
               url={this.props.url}
             />
           </div>
+          <Footer />
         </Container>
       </div>
     )
