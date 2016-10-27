@@ -6,10 +6,15 @@ import uniq from 'lodash.uniq'
 
 import { SectionHeader } from 'rebass'
 import Layout from '../components/layout'
+
 import DeclarationStats from '../components/declaration-stats'
 import TopLevelStats from '../components/top-level-stats'
+
 import BackgroundColors from '../components/background-colors'
 import Colors from '../components/colors'
+
+import FontFamilies from '../components/font-families'
+import FontSizes from '../components/font-sizes'
 
 import c from 'next/css'
 import style from '../style'
@@ -68,7 +73,17 @@ export default class extends React.Component {
         />
         <BackgroundColors
           backgroundColors={
-            uniq(stats.declarations.properties['background-color'].map(c => c.toLowerCase()))
+            uniq(stats.declarations.properties['background-color'])
+          }
+        />
+        <FontSizes
+          fontSizes={
+            uniq(stats.declarations.properties['font-size'])
+          }
+        />
+        <FontFamilies
+          fontFamilies={
+            uniq(stats.declarations.properties['font-family'])
           }
         />
       </Layout>

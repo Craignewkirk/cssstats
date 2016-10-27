@@ -10,6 +10,7 @@
   },
   "repository": "cssstats/cssstats",
   "dependencies": {
+    "css-unit-sort": "^1.0.1",
     "is-blank": "^1.1.0",
     "isomorphic-fetch": "^2.2.1",
     "lodash.uniq": "^4.5.0",
