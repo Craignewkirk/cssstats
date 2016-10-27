@@ -1,0 +1,8 @@
+Break out layout into component
+Bump core to 3
+Finalize cli
+Update all other modules
+Break out api into separate microservices
+Add frameworks section
+Add stats page
+Add f0 graphs
