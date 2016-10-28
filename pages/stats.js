@@ -17,6 +17,8 @@ import Colors from '../components/colors'
 import FontFamilies from '../components/font-families'
 import FontSizes from '../components/font-sizes'
 
+import SpacingResets from '../components/spacing-resets'
+
 import SpecificityGraph from '../components/specificity-graph'
 import RulesetGraph from '../components/ruleset-graph'
 import PropertiesBreakdown from '../components/properties-breakdown'
@@ -92,6 +94,8 @@ export default class extends React.Component {
             uniq(stats.declarations.properties['font-family'])
           }
         />
+
+        <SpacingResets properties={stats.declarations.properties} />
 
         <SpecificityGraph data={stats.selectors.specificity.graph} />
         <RulesetGraph data={stats.rules.size.graph} />
