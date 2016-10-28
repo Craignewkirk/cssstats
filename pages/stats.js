@@ -19,6 +19,7 @@ import FontSizes from '../components/font-sizes'
 
 import SpecificityGraph from '../components/specificity-graph'
 import RulesetGraph from '../components/ruleset-graph'
+import PropertiesBreakdown from '../components/properties-breakdown'
 
 import c from 'next/css'
 import style from '../style'
@@ -57,6 +58,7 @@ export default class extends React.Component {
     const { url: { query: { url } } } = this.props
 
     console.log(stats)
+
     if (isBlank(stats)) {
       this.getStats()
       return <h1>Loading</h1>
@@ -93,6 +95,7 @@ export default class extends React.Component {
 
         <SpecificityGraph data={stats.selectors.specificity.graph} />
         <RulesetGraph data={stats.rules.size.graph} />
+        <PropertiesBreakdown data={stats.declarations.properties} />
       </Layout>
     )
   }
