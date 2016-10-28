@@ -63,7 +63,7 @@ export default class extends React.Component {
     }
 
     return (
-      <Layout>
+      <Layout url={this.props.url}>
         <SectionHeader
           description={url}
           heading={title}
