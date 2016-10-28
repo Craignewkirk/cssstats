@@ -55,6 +55,8 @@ export default class extends React.Component {
       return <h1>Loading</h1>
     }
 
+    console.log(styles)
+
     return (
       <Layout url={this.props.url}>
         <SectionHeader
@@ -63,22 +65,23 @@ export default class extends React.Component {
         />
         <Colors
           colors={
-            uniq(styles.declarations.properties.color.map(c => c.toLowerCase()))
+            uniq((styles.declarations.properties.color || []).map(c => c.toLowerCase()))
           }
         />
         <BackgroundColors
           backgroundColors={
-            uniq(styles.declarations.properties['background-color'])
+            uniq(styles.declarations.properties['background-color'] || [])
           }
         />
+
         <FontSizes
           fontSizes={
-            uniq(styles.declarations.properties['font-size'])
+            uniq(styles.declarations.properties['font-size'] || [])
           }
         />
         <FontFamilies
           fontFamilies={
-            uniq(styles.declarations.properties['font-family'])
+            uniq(styles.declarations.properties['font-family'] || [])
           }
         />
       </Layout>
