@@ -8,6 +8,10 @@ import PopularSites from '../components/popular-sites'
 export default class extends React.Component {
   static getInitialProps () {
     return {
+      frameworks: [
+        'getboostrap.com', 'foundation.zurb.com', 'purecss.io', 'materializecss.com',
+        'basscss.com', 'tachyons.io', 'furtive.co'
+      ],
       sites: [
         'google.com', 'yahoo.com', 'twitter.com', 'facebook.com', 'tumblr.com', 'apple.com',
         'youtube.com', 'pinterest.com', 'medium.com', 'paypal.com', 'stripe.com', 'trulia.com',
@@ -42,6 +46,11 @@ export default class extends React.Component {
         <UrlForm
           onChange={this.handleUrlChange}
           onSubmit={this.handleUrlSubmit}
+        />
+        <PopularSites
+          sites={this.props.frameworks}
+          url={this.props.url}
+          description='View Stats for Popular Frameworks'
         />
         <PopularSites
           sites={this.props.sites}

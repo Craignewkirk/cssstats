@@ -2,11 +2,12 @@ import React from 'react'
 import Link from './relink'
 import { Section, Heading } from 'rebass'
 
-export default ({ sites, url }) => (
+export default ({ sites, url, description }) => (
   <Section>
     <Heading
       level={2}
-      children='View Stats for Popular Sites' mb={2}
+      mb={2}
+      children={description || 'View Stats for Popular Sites'}
     />
     {sites.map(site => (
       <Link
