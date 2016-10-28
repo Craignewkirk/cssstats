@@ -11,7 +11,7 @@ export default ({ data }) => {
       <Heading
         pb={2}
         level={3}
-        children='Specificity Graph'
+        children='Ruleset Size'
       />
       <VictoryChart height={225}>
         <VictoryBar

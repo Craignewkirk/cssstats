@@ -18,6 +18,7 @@ import FontFamilies from '../components/font-families'
 import FontSizes from '../components/font-sizes'
 
 import SpecificityGraph from '../components/specificity-graph'
+import RulesetGraph from '../components/ruleset-graph'
 
 import c from 'next/css'
 import style from '../style'
@@ -91,6 +92,7 @@ export default class extends React.Component {
         />
 
         <SpecificityGraph data={stats.selectors.specificity.graph} />
+        <RulesetGraph data={stats.rules.size.graph} />
       </Layout>
     )
   }
