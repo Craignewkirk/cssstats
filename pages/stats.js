@@ -5,6 +5,7 @@ import bytes from 'pretty-bytes'
 import uniq from 'lodash.uniq'
 
 import { SectionHeader } from 'rebass'
+
 import Layout from '../components/layout'
 
 import DeclarationStats from '../components/declaration-stats'
@@ -15,6 +16,8 @@ import Colors from '../components/colors'
 
 import FontFamilies from '../components/font-families'
 import FontSizes from '../components/font-sizes'
+
+import SpecificityGraph from '../components/specificity-graph'
 
 import c from 'next/css'
 import style from '../style'
@@ -86,6 +89,8 @@ export default class extends React.Component {
             uniq(stats.declarations.properties['font-family'])
           }
         />
+
+        <SpecificityGraph data={stats.selectors.specificity.graph} />
       </Layout>
     )
   }

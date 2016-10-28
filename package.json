@@ -17,6 +17,7 @@
     "next": "^1.0.0",
     "pretty-bytes": "^4.0.2",
     "rebass": "^0.3.3",
-    "reflexbox": "^2.2.2"
+    "reflexbox": "^2.2.2",
+    "victory": "^0.13.1"
   }
 }
