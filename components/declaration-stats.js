@@ -13,7 +13,7 @@ export default ({ declarations }) => {
   const backgroundColors = declarations.properties['background-color'] || []
 
   return (
-    <Section>
+    <Section pt={2}>
       <Heading
         pb={2}
         level={3}
@@ -27,6 +27,9 @@ export default ({ declarations }) => {
           topLabel
           label='Font Size'
           value={fontSizes.length}
+          style={{
+            value: { fontSize: 10 }
+          }}
         />
         <Stat
           topLabel
