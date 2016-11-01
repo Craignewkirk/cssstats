@@ -10,16 +10,16 @@
   },
   "repository": "cssstats/cssstats",
   "dependencies": {
-    "css-unit-sort": "^1.0.1",
+    "css-unit-sort": "^1.1.0",
     "is-blank": "^1.1.0",
     "is-present": "^1.0.0",
     "isomorphic-fetch": "^2.2.1",
     "lodash.uniq": "^4.5.0",
-    "next": "^1.0.0",
+    "next": "^1.0.2",
     "pretty-bytes": "^4.0.2",
     "rebass": "^0.3.3",
     "reflexbox": "^2.2.2",
     "to-percentage": "^1.0.0",
-    "victory": "^0.13.1"
+    "victory": "^0.13.3"
   }
 }

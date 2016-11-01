@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import { Container } from 'rebass'
 
+import Head from '../components/head'
 import Header from '../components/header'
 import Footer from '../components/footer'
 
@@ -23,6 +24,7 @@ export default class extends React.Component {
   render () {
     return (
       <div className={c(style)}>
+        <Head />
         <Container>
           <Header url={this.props.url} />
           <div style={{paddingTop: 48}}>
