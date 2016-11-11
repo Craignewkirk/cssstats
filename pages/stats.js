@@ -17,6 +17,7 @@ import Colors from '../components/colors'
 import FontFamilies from '../components/font-families'
 import FontSizes from '../components/font-sizes'
 
+import Spacing from '../components/spacing'
 import SpacingResets from '../components/spacing-resets'
 
 import SpecificityGraph from '../components/specificity-graph'
@@ -96,6 +97,7 @@ export default class extends React.Component {
         />
 
         <SpacingResets properties={stats.declarations.properties} />
+        <Spacing properties={stats.declarations.properties} />
 
         <SpecificityGraph data={stats.selectors.specificity.graph} />
         <RulesetGraph data={stats.rules.size.graph} />
